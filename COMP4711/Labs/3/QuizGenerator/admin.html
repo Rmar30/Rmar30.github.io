@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Personal Web Site" />
+    <meta name="keywords" content="Programmer, Web, Software Developer" />
+    <meta name="author" content="Ryan Mar" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="strings.js"></script>
+    <script src="sharedFunctions.js"></script>
+    <script src="adminFunctions.js"></script>
+  </head>
+
+  <body onload="retrieveQuiz()">
+    <div class="container">
+      <h1>Quiz Admin Page</h1>
+      <a href="user.html"
+        ><button class="btn btn-primary" type="button">Take the Quiz</button></a
+      >
+
+      <div class="question-view"></div>
+      <button
+        class="btn btn-primary question-add-button"
+        type="button"
+        onclick="displayModPage()"
+      >
+        Add More Questions
+      </button>
+
+      <div class="question-mod-view hide">
+        <div class="form-group">
+          <label for="question">Question</label>
+          <textarea class="form-control" rows="5" id="question"></textarea>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <th class="table-header-center ">Option</th>
+            <th>Description</th>
+            <th class="table-header-center ">Is Answer</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text" class="form-control" id="option1" /></td>
+              <td><input type="radio" name="answerRadio" id="answer1" /></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><input type="text" class="form-control" id="option2" /></td>
+              <td><input type="radio" name="answerRadio" id="answer2" /></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><input type="text" class="form-control" id="option3" /></td>
+              <td><input type="radio" name="answerRadio" id="answer3" /></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><input type="text" class="form-control" id="option4" /></td>
+              <td><input type="radio" name="answerRadio" id="answer4" /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button
+          class="question-submit-button"
+          type="submit"
+          onclick="storeQuiz()"
+        >
+          Submit
+        </button>
+        <button
+          class="question-cancel-button"
+          type="button"
+          onclick="cancelQuestion()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
