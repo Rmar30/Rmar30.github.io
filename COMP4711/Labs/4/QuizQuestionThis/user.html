@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Personal Web Site" />
+        <meta name="keywords" content="Programmer, Web, Software Developer" />
+        <meta name="author" content="Ryan Mar" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="strings.js"></script>
+        <script src="sharedFunctions.js"></script>
+        <script src="userFunctions.js"></script>
+    </head>
+
+    <body onload=retrieveQuiz()>
+        <div class="container">
+            <h1>User Quiz</h1>
+            <a href = "../Proof Debugger Works.jpg"><button class="btn btn-primary quiz-submit-button" type="button">PART A - DEBUG IMAGE</button></a>
+            <a href = "https://nodejs-currenttime.herokuapp.com/"><button class="btn btn-primary quiz-submit-button" type="button">PART B - NODE JS CURRENT DATETIME</button></a>
+            <div class="question-view"></div>
+            <div class="score-view"></div>
+            <div class="bottom-button-group">
+                <button class="btn btn-danger quiz-submit-button" type="button" onclick = checkAnswers()>Submit Answers</button>
+            </div>
+        </div>
+    </body>
+</html>
