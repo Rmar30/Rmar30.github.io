@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+
+    const APIKEY = 'b8sffpvfkf4vdkqmx32rszjd'
+
+    function getItem() {
+      let link = "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?apiKey=" + APIKEY + "&query=" + jQuery("#productname").val();
+      
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let itemList = JSON.parse(this.responseText);
+          document.getElementById('itemlist').innerHTML = '';
+
+          for (let i = 0; i < itemList.items.length; i++) {
+            let node = document.createElement("p");
+            let textnode = document.createTextNode(itemList.items[i].name + ": $" + itemList.items[i].salePrice);
+            node.appendChild(textnode);
+            document.getElementById("itemlist").appendChild(node); 
+          }
+        }
+      };
+      xhttp.open("GET", link, true);
+      xhttp.send();
+    }
+    </script>
+
+</head>
+  <body>
+    <h1>Walmart API</h1>
+    <form>
+      <div class="form-group">
+        <label for="productname">Product Name</label>
+        <input type="text" class="form-control" id="productname" placeholder="Enter Product Search...">
+      </div>
+    </form>
+    <button type="submit" class="btn btn-primary" id = "submit" onclick="getItem()">Submit</button>
+    <div id="itemlist"></div>
+  </body>
+</html>
